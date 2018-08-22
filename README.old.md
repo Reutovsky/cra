@@ -1,2 +1,0 @@
-# cra
-create-react-app
