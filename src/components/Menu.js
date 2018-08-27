@@ -5,7 +5,12 @@ import PropTypes from 'prop-types'
 class Summary extends React.Component {
 
 	static propTypes = {
-		title: PropTypes.string,
+		title: (props, propName) => 
+			(typeof props[propName] !== 'string') ? 
+				new Error("A title must be a string") :
+				(props[propName].length > 20) ? 
+					new Error("Title is over 20 characters") :
+					null,
 		ingredients: PropTypes.array,
 		steps: PropTypes.array
 	}
